@@ -1,6 +1,6 @@
 use borsh::{BorshDeserialize, BorshSerialize};
 
-#[derive(BorshDeserialize, BorshSerialize, Debug)]
+#[derive(BorshDeserialize, BorshSerialize, Debug, Clone)]
 pub struct Mail {
     pub id: String,
     pub from_address: String,
@@ -14,4 +14,9 @@ pub struct Mail {
 pub struct MailAccount {
   pub inbox: Vec<Mail>,
   pub sent: Vec<Mail>,
+}
+
+#[derive(BorshDeserialize, BorshSerialize, Debug)]
+pub struct DataLength {
+  pub length: u32,
 }

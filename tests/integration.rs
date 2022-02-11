@@ -16,7 +16,7 @@ fn test_validator_transaction() {
     let program_id = Pubkey::new_unique();
 
     let (test_validator, payer) = TestValidatorGenesis::default()
-        .add_program("bpf_program_template", program_id)
+        .add_program("solana_mail", program_id)
         .start();
     let rpc_client = test_validator.get_rpc_client();
 

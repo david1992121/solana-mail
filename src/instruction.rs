@@ -1,5 +1,6 @@
-use crate::error::MailError::InvalidInstruction;
+use crate::{error::MailError::InvalidInstruction, state::Mail};
 use solana_program::program_error::ProgramError;
+use borsh::BorshDeserialize;
 
 #[derive(Debug)]
 pub enum MailInstruction {
@@ -9,6 +10,14 @@ pub enum MailInstruction {
     ///
     /// 1. `[writable]` The AccountInfo of the account to be initialized
     InitAccount,
+
+    /// Send a mail to an account.
+    ///
+    /// Accounts expected:
+    ///
+    /// 1. `[writable]` The AccountInfo of the sender
+    /// 2. `[writable]` The AccountInfo of the receiver
+    SendMail { mail: Mail },
 }
 
 impl MailInstruction {
@@ -17,6 +26,9 @@ impl MailInstruction {
 
         Ok(match tag {
             0 => Self::InitAccount,
+            1 => Self::SendMail {
+                mail: Mail::try_from_slice(&rest)?,
+            },
             _ => return Err(InvalidInstruction.into()),
         })
     }

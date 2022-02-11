@@ -368,21 +368,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "bpf-program-template"
-version = "0.1.0"
-dependencies = [
- "assert_matches",
- "borsh",
- "borsh-derive",
- "solana-logger",
- "solana-program",
- "solana-program-test",
- "solana-sdk",
- "solana-validator",
- "thiserror",
-]
-
-[[package]]
 name = "bs58"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4213,6 +4198,21 @@ dependencies = [
  "env_logger",
  "lazy_static",
  "log 0.4.14",
+]
+
+[[package]]
+name = "solana-mail"
+version = "0.1.0"
+dependencies = [
+ "assert_matches",
+ "borsh",
+ "borsh-derive",
+ "solana-logger",
+ "solana-program",
+ "solana-program-test",
+ "solana-sdk",
+ "solana-validator",
+ "thiserror",
 ]
 
 [[package]]
