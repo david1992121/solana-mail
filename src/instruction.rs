@@ -2,7 +2,7 @@ use crate::{error::MailError::InvalidInstruction, state::Mail};
 use solana_program::program_error::ProgramError;
 use borsh::BorshDeserialize;
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum MailInstruction {
     /// Initialize a new account
     ///
